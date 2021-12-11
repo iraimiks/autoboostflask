@@ -1,0 +1,81 @@
+{% extends 'work/base_work.html' %}
+{% block title %}
+Auto
+{% endblock %}
+{% block content %}
+<div class="container">
+  <h2>Aktīvie pasūtījumi</h2>
+  <table class="table table-striped ">
+    <thead>
+      <th>
+        Pasūtījuma ID
+      </th>
+      <th>
+        Klienta mašīnas ID
+      </th>
+      <th>
+        Klienta vārds
+      </th>
+      <th>
+        Telfons
+      </th>
+      <th>
+        Auto numurs
+      </th>
+      <th>
+        Auto darba status
+      </th>
+      <th>
+        Pasūtījuma status
+      </th>
+      <th>
+        Darbinieka ID
+      </th>
+      <th>
+        Laiks
+      </th>
+      <th>
+
+      </th>
+    </thead>
+    <tbody>
+      {% for order in order_details %}
+      <tr>
+        <td>
+          {{ order.CarServiceOrder['id_order'] }}
+        </td>
+        <td>
+          {{ order.Customer['id'] }}
+        </td>
+        <td>
+          {{ order.Customer['name'] }}
+        </td>
+        <td>
+          {{ order.Customer['phone_number'] }}
+        </td>
+        <td>
+          {{ order.CustomerCars['car_name'] }}
+        </td>
+        <td>
+          {{ order.CarServiceOrder['car_work_status'] }}
+        </td>
+        <td>
+          {{ order.CarServiceOrder['order_status'] }}
+        </td>
+        <td>
+          {{ order.CarServiceOrder['worker_id']}}
+        </td>
+        <td>
+          {{ order.CarServiceOrder['create_date'] }}
+        </td>
+        <td>
+          <a type="button" class="btn btn-secondary btn-lg" href="/order_p/{{ order.CarServiceOrder['id_order'] }}">Sagatavot</a>
+          Rekvizītu
+          Labot
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

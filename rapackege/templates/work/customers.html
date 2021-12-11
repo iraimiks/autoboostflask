@@ -1,0 +1,56 @@
+{% extends 'work/base_work.html' %}
+{% block title %}
+Klientu saraksts
+{% endblock %}
+{% block content %}
+<div class="container">
+  <h2>Registrētie klienti</h2>
+  <table class="table table-striped" id="customer_list">
+    <thead>
+      <th>
+        Klienta ID
+      </th>
+      <th>
+        Telefons
+      </th>
+      <th>
+        Vārds
+      </th>
+      <th>
+        Status Darba
+      </th>
+      <th>
+        Izveides laiks
+      </th>
+      <th>
+
+      </th>
+    </thead>
+    <tbody>
+      {% for customer in customers %}
+      <tr>
+        <td>
+          {{ customer['id'] }}
+        </td>
+        <td>
+          {{ customer['phone_number'] }}
+        </td>
+        <td>
+          {{ customer['name'] }}
+        </td>
+        <td>
+          Darbs izdarīts
+        </td>
+        <td>
+          {{ customer['create_date'] }}
+        </td>
+        <td>
+          <a type="button" class="btn btn-primary btn-lg" href="/customer/{{ customer['id'] }}">Klienta auto</a>
+          <a type="button" class="btn btn-secondary btn-lg" href="/edit_work/{{ customer['id'] }}">Labot datus</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

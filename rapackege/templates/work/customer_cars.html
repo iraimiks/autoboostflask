@@ -1,0 +1,75 @@
+{% extends 'work/base_work.html' %}
+{% block title %}
+Klients
+{% endblock %}
+{% block content %}
+<div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+  <div class="card-header">Klients</div>
+  <div class="card-body">
+    <h5 class="card-title">Vārds: {{ customer['name'] }}</h5>
+    <h5 class="card-title">Telefons: {{ customer['phone_number'] }}</h5>
+  </div>
+</div>
+<div class="container border border-primary">
+  <form method="POST" class="row g-3">
+    <h2>Registrēt auto</h2>
+    <p>Katram registrētam klientam var pievienot vairākus auto
+      <br>
+      <b>Auto numurs</b> ir auto valsts registrācijas numur piemeram LV-3000
+    </p>
+    <div class="col-3">
+      <label for="car_name" class="form-label">Auto numurs</label>
+      <input type="text" class="form-control" id="car_name" name="car_name" placeholder="LV-XXXX" value="" maxlength="12">
+    </div>
+    <div class="col-12 mb-2">
+      <button type="submit" class="btn btn-primary">Pievienot</button>
+    </div>
+  </form>
+</div>
+<div class="container">
+  <p>Tabulā ir klienta registrētie auto</p>
+  <p>Izvēlēties darbinieku no saraksta lai pievienot auto darbiniekam nospiest <b>Pievienot auto darbiniekam</b></p>
+  <table class="table table-striped mt-5">
+    <thead>
+      <th>
+        Auto ID
+      </th>
+      <th>
+        Auto Numurs
+      </th>
+      <th>
+        Izveides laiks
+      </th>
+      <th>
+        Auto darbības
+      </th>
+    </thead>
+    <tbody>
+      {% for customer_car in customer_cars %}
+      <tr>
+        <td>
+          {{ customer_car['id'] }}
+        </td>
+        <td>
+          {{ customer_car['car_name'] }}
+        </td>
+        <td>
+          {{ customer_car['create_date'] }}
+        </td>
+        <td>
+          <div class="row">
+            <div class="col">
+              <a type="button" class="btn btn-secondary btn-lg" href="/car_orders/{{ customer_car['id'] }}">Auto pasūtījumi</a>
+            </div>
+            <div class="col">
+              <a type="button" class="btn btn-secondary btn-lg" href="/edit_car/{{ customer_car['id'] }}">Labot auto
+                datus</a>
+            </div>
+          </div>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

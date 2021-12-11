@@ -1,0 +1,18 @@
+{% extends 'auth/base_auth.html' %}
+{% block title %}
+Pieraksts
+{% endblock %}
+{% block content %}
+<form method="POST" class="col col-lg-3">
+  <h2>Pieslēkties darbam</h2>
+  <div class="mb-3">
+    <label for="username" class="form-label">Lietotājs</label>
+    <input type="text" class="form-control" id="username" name="username" value="">
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">Parole</label>
+    <input type="password" class="form-control" id="password" name="password" value="">
+  </div>
+  <input type="submit" value="Pieslēkties">
+</form>
+{% endblock %}

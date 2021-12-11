@@ -1,0 +1,91 @@
+{% extends 'work/base_work.html' %}
+{% block title %}
+Auto
+{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      <h3>Izveidot pasūtījumu un pievienot darbinieku</h3>
+      <form method="POST" >
+        <div class="mb-3">
+          <select class="form-select" name="workerid" aria-label="Default select example">
+            {% for worker in workers %}
+            {% if 'user_worker' == worker['user_role'] %}
+            <option value="{{ worker['id'] }}">{{ worker['username'] }}</option>
+            {% endif %}
+            {% endfor %}
+          </select>
+        </div>
+        <div class="mb-3">
+          <button type="submit" class="btn btn-primary">Pievienot pasūtījumu</button>
+        </div>
+      </form>
+    </div>
+    <div class="col-3">
+      <div class="card text-white bg-primary col m-2" style="max-width: 18rem;">
+        <div class="card-header">Auto</div>
+        <div class="card-body">
+          <h5 class="card-title">Auto Numurs: {{ car['car_name'] }}</h5>
+          <a class="nav-link btn-warning" href="/customer/{{ car['customer_id'] }}">Atpakaļ pie klienta auto</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <h2>Mašīnas veicamie darbi:</h2>
+  <table class="table table-striped ">
+    <thead>
+      <th>
+        Pasūtījuma ID
+      </th>
+      <th>
+        Pasūtījuma nosaukums
+      </th>
+      <th>
+        Pasūtījuma Status
+      </th>
+      <th>
+        Auto ID
+      </th>
+      <th>
+        Izveides datums
+      </th>
+      <th>
+        Atbildīgais darbinieks
+      </th>
+      <th>
+
+      </th>
+    </thead>
+    <tbody>
+      {% for order in orders %}
+      <tr>
+        <td>
+          {{ order['id'] }}
+        </td>
+        <td>
+          {{ order['order_name'] }}
+        </td>
+        <td>
+          {{ order['order_status'] }}
+        </td>
+        <td>
+          {{ order['id_car'] }}
+        </td>
+        <td>
+          {{ order['create_date'] }}
+        </td>
+        <td>
+          {{ order['worker_name'] }}
+        </td>
+        <th>
+          <a type="button" class="btn btn-secondary btn-lg" href="/customer_car_service/{{ order['id'] }}">Sākt darbu</a>
+        </th>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

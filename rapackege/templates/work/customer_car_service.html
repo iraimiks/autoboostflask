@@ -1,0 +1,141 @@
+{% extends 'work/base_work.html' %}
+{% block title %}
+Auto
+{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="card text-white bg-primary col m-2" style="max-width: 18rem;">
+      <div class="card-header">Klients</div>
+      <div class="card-body">
+        <h5 class="card-title">Vārds: {{ customer['name'] }}</h5>
+        <h5 class="card-title">Telefons: {{ customer['phone_number'] }}</h5>
+        <a class="nav-link btn-warning" href="/customer/{{ customer['id'] }}">Atpakaļ pie klienta auto</a>
+      </div>
+    </div>
+    <div class="card text-white bg-primary col m-2" style="max-width: 18rem;">
+      <div class="card-header">Auto</div>
+      <div class="card-body">
+        <h5 class="card-title">Auto Numurs: {{ car['car_name'] }}</h5>
+        <a class="nav-link btn-warning" href="/car_orders/{{ car['id'] }}">Atpakaļ pie auto pasūtījumiem</a>
+      </div>
+    </div>
+    <div class="card text-white bg-primary col m-2" style="max-width: 18rem;">
+      <div class="card-header">Darbinieks</div>
+      <div class="card-body">
+        <h5 class="card-title">Vārds: {{ worker['username'] }}</h5>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container border border-primary">
+  <form method="POST" class="row g-3">
+    <h2>Registrēt darbu</h2>
+    <p>Veicamais darbs ir darbs kas tiek darīts uz auto piemēram <em>Riepu maiņa</em>
+      <br>
+      Detaļas nosaukums ir piemēram <em>4 riepas</em>
+      <br>
+      Laiks ir darba veikšana peimēram <em>1.5</em> ir 1h 30 min vai arī 90 min 
+      <br>
+      Darbība ir remonts vai diagnostika
+    </p>
+    <div class="col-3">
+      <label for="service" class="form-label">Veicamais darbs</label>
+      <input type="text" class="form-control" id="service" name="service" value="" required>
+    </div>
+    <div class="col-3">
+      <label for="partname" class="form-label">Detaļa nosaukums</label>
+      <input type="text" class="form-control" id="partname" name="partname" value="" required>
+    </div>
+    <div class="col-3">
+      <label for="spendtime" class="form-label">Laiks min</label>
+      <input type="number" class="form-control" id="spendtime" name="spendtime" value="" required>
+    </div>
+    <div class="col-3">
+      <label for="worktype" class="form-label">Veicamā darbība</label>
+      <div class="mb-3">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="worktype" id="workaction1" value="Remonts" checked>
+          <label class="form-check-label" for="workaction1">
+            Remonts
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="worktype" id="workaction2" value="Diagnostika">
+          <label class="form-check-label" for="workaction2">
+            Diagnostika
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 mb-2">
+      <button type="submit" class="btn btn-primary">Pievienot</button>
+    </div>
+  </form>
+</div>
+<div class="container mt-2">
+  <table class="table table-striped ">
+    <thead>
+      <th>
+        Darba ID
+      </th>
+      <th>
+        Veicamaijs Darbs
+      </th>
+      <th>
+        Detaļa nosaukums
+      </th>
+      <th>
+        Laiks min
+      </th>
+      <th>
+        Veicamā darbība
+      </th>
+      <th>
+        Izveides laiks
+      </th>
+      <th>
+
+      </th>
+    </thead>
+    <tbody>
+      {% for car in service_cars %}
+      <tr>
+        <td>
+          {{ car['id'] }}
+        </td>
+        <td>
+          {{ car['service'] }}
+        </td>
+        <td>
+          {{ car['part_name'] }}
+        </td>
+        <td>
+          {{ car['spend_time'] }}
+        </td>
+        <td>
+          {{ car['work_type'] }}
+        </td>
+        <td>
+          {{ car['create_date'] }}
+        </td>
+        <td>
+          <a type="button" class="btn btn-secondary btn-lg" href="/edit_work/{{ customer['id'] }}">Labot datus</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <p>
+    <b>Sagatavot pasūtījums</b> tiks izveidots rekvizīta sagatave
+  </p>
+  <form method="POST" action="/order_pre">
+    <input type="text" id="customerid" class="invisible" name="customerid" value="{{ customer['id'] }}">
+    <input type="text" id="customercarid" class="invisible" name="customercarid" value="{{ car['id'] }}">
+    <input type="text" id="orderid" class="invisible" name="orderid" value="{{ id_orders_car['id'] }}">
+    <div class="col-12 mb-2">
+      <button type="submit" class="btn btn-primary">Sagatavot pasūtījums</button>
+    </div>
+  </form>
+</div>
+{% endblock %}

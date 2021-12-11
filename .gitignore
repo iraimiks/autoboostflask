@@ -1,0 +1,6 @@
+**/__pycache__
+**/build
+**/dist
+**/flaskr.egg-info
+config.py
+setup.py

@@ -1,0 +1,73 @@
+{% extends 'work/base_work.html' %}
+{% block title %}
+Order prepear
+{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2>AUTOBOOST LOGO</h2>
+      </div>
+      <div class="col">
+        <h3>Rēķins Nr: 20</h3>
+        <hr>
+        <div class="row">
+          <div class="col-6 col-sm-4">Rēķina datums</div>
+          <div class="col-6 col-sm-4">20.10.2021</div>
+          <div class="w-100 d-none d-md-block"></div>
+          <div class="col-6 col-sm-4">Apmaksāt līdz</div>
+          <div class="col-6 col-sm-4">10.10.2021</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="container mt-2">
+    <table class="table table-striped ">
+      <thead>
+        <th>
+          Darba ID
+        </th>
+        <th>
+          Veicamaijs Darbs
+        </th>
+        <th>
+          Detaļa nosaukums
+        </th>
+        <th>
+          Laiks min
+        </th>
+        <th>
+          Veicamā darbība
+        </th>
+      </thead>
+      <tbody>
+        {% for car in service_order %}
+        <tr>
+          <td>
+            {{ car['id'] }}
+          </td>
+          <td>
+            {{ car['service'] }}
+          </td>
+          <td>
+            {{ car['part_name'] }}
+          </td>
+          <td>
+            {{ car['spend_time'] }}
+          </td>
+          <td>
+            {{ car['work_type'] }}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+      <div class="col-12 mb-2">
+        <!--<a type="submit" class="btn btn-primary" href="{{ url_for('order_req_pdf') }}">Sagatavot pdf</a>-->
+      </div>
+  </div>
+</div>
+{% endblock %}

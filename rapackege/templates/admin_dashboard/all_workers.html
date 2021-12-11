@@ -1,0 +1,43 @@
+{% extends 'work/base_work.html' %}
+{% block title %}
+Darbinieku saraksts
+{% endblock %}
+{% block content %}
+<div class="container">
+  <h2>Darbinieku saraksts</h2>
+  <table class="table table-striped" id="workers_list">
+    <thead>
+      <th>
+        Darbinieka ID
+      </th>
+      <th>
+        Loma
+      </th>
+      <th>
+        Darbinieka Vārds
+      </th>
+      <th>
+        Darbs
+      </th>
+    </thead>
+    <tbody>
+      {% for worker in workers %}
+      <tr>
+        <td>
+          {{ worker['id'] }}
+        </td>
+        <td>
+          {{ worker['user_role'] }}
+        </td>
+        <td>
+          {{ worker['username'] }}
+        </td>
+        <td>
+          <a type="button" class="btn btn-primary btn-lg" href="/worker_cars/{{ worker['id'] }}">Darbinieka darbs</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

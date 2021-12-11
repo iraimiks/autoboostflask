@@ -1,0 +1,18 @@
+{% extends 'work/base_work.html' %}
+{% block title %}
+Klienta registrācija
+{% endblock %}
+{% block content %}
+<form method="POST">
+  <h2>Registrēt klientu</h2>
+  <div class="mb-3">
+    <label for="phonenumber" class="form-label">Telefons</label>
+    <input type="text" class="form-control" maxlength="8" id="phonenumber" name="phonenumber" placeholder="2XXXXXXX" pattern="[2]{1}[0-9]{7}" value="">
+  </div>
+  <div class="mb-3">
+    <label for="customername" class="form-label">Vārds</label>
+    <input type="text" class="form-control" maxlength="30" id="customername" name="customername" value="">
+  </div>
+  <input type="submit" value="Saglabāt">
+</form>
+{% endblock %}

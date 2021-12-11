@@ -1,0 +1,67 @@
+{% extends 'work/base_work.html' %}
+{% block title %}
+Klienta logs
+{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="card text-white bg-primary col m-2" style="max-width: 18rem;">
+      <div class="card-header">Darbinieks</div>
+      <div class="card-body">
+        <h5 class="card-title">Vārds: {{ worker['username'] }}</h5>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <h2>Jūsu darbs: </h2>
+  <table class="table table-striped mt-5">
+    <thead>
+      <th>
+        Pasūtījuma ID
+      </th>
+      <th>
+        Pasūtījuma nosaukums
+      </th>
+      <th>
+        Pasūtījuma status
+      </th>
+      <th>
+        Auto ID
+      </th>
+      <th>
+        Laiks darba
+      </th>
+      <th>
+
+      </th>
+    </thead>
+    <tbody>
+      {% for worker_order in worker_orders %}
+      <tr>
+        <td>
+          {{ worker_order['id'] }}
+        </td>
+        <td>
+          {{ worker_order['order_name'] }}
+        </td>
+        <td>
+          {{ worker_order['order_status'] }}
+        </td>
+        <td>
+          {{ worker_order['id_car'] }}
+        </td>
+        <td>
+          {{ worker_order['spend_time'] }}
+        </td>
+        <td>
+          <a type="button" class="btn btn-primary btn-lg" href="/customer_car_service/{{ worker_order['id'] }}">Sākt darbu</a>
+          <a type="button" class="btn btn-secondary btn-lg" href="/edit_car/{{ worker_order['id'] }}">Labot auto
+            datus</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

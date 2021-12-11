@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/select/1.3.3/css/select.bootstrap5.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='work.css') }}">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/select/1.3.3/js/dataTables.select.min.js"></script>
+  <script language="JavaScript" type="text/javascript" src="{{ url_for('static', filename = 'somequery.js') }}"></script>
+  <title>
+    {% block title %}
+    {% endblock %}
+  </title>
+</head>
+<html>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">AutoBoost | Darbs</a>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="/worker_cars/{{ user['id'] }}">Mans darbs</a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav justify-content-end">
+              <h3 class="mr-2">{{ user['username'] }}<i class="fa fa-user-circle-o ps-2" aria-hidden="true"></i></h3>
+              <a class="nav-link active" aria-current="page" href="/auth/logout">Atslēgties</a>
+        </div>
+      </div>
+    </nav>
+      <div class="row">
+        <div class="col-sm-2 bg-light">
+          <nav class="nav flex-column ">
+            <a class="nav-link" href="/customer_reg">Registrēt Klientu</a>
+            <a class="nav-link" href="/customers">Klientu Saraksts</a>
+            <a class="nav-link" href="/all_orders">Pasūtījumi</a>
+            <a class="nav-link" href="/auth/register">Registrēt darbinieku</a>
+            <a class="nav-link" href="/all_workers">Darbinieki</a>
+            <a class="nav-link" href="#meklēt">Meklēt</a>
+          </nav>
+        </div>
+        <div class="col-sm-9">
+          {% block content %}
+          {% endblock %}
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+    </body>
+</html>

@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300&family=Kanit:wght@200&display=swap');
+
+html, body {
+  height: 100%;
+  margin: 0;
+  background-color: black;
+  font-family: 'Kanit', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #fda30a;
+}
+
+a:link:active, a:visited:active {
+  color: #fda30a;
+}
+
+h2 {
+  color: blue;
+}
+
+/*Grid setup*/
+.container {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: 760px 1fr auto;
+  gap: 0px 0px;
+  grid-template-areas:
+    "header"
+    "content"
+    "footer";
+}
+.header {
+  grid-area: header;
+  background-image: url("bgheader.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.content {
+  grid-area: content;
+  background-color: antiquewhite;
+}
+.footer {
+  grid-area: footer;
+  background-color: rgba(197, 119, 17, 0.651);
+}
+
+/* Header nav bar style */
+.header-container-nav {
+  color: white;
+  height: 120px;
+  background-color: #1a11118a;
+}
+
+.header-nav {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row nowrap;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+}
+.header-nav-logo {
+  font-family: 'Fugaz One', cursive;
+  width: 15%;
+  font-size: 1.7rem;
+}
+
+.header-nav-list {
+  display: flex;
+  flex-direction: row;
+  width: 60%;
+}
+
+.header-nav-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 25%;
+}
+
+.nav-list-item {
+  margin: 2em;
+  font-weight: bold;
+  padding: 1em;
+}
+
+.nav-list-item:hover {
+  border-bottom: solid 1px tomato;
+}
+
+.nav-info-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2em 0 2em 0;
+}
+
+.nav-info-item button {
+  width: 157px;
+  height: 50px;
+  background: linear-gradient(274.42deg, #f3a109 0%, #fbff00 124.45%);
+  border-radius: 16px;
+  font-weight: bold;
+  color: #CE4F31;
+}
+
+
+/*social btn */
+.social-face {
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  width: 40px;
+}
+
+.social-face img {
+  width: 100%;
+}
+

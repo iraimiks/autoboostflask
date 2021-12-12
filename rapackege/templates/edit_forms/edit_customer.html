@@ -1,0 +1,23 @@
+{% extends 'work/base_work.html' %}
+{% block title %}
+Labot klienta datus
+{% endblock %}
+{% block content %}
+<div class="container">
+  <form method="POST">
+    <h2>Labot klienta datus</h2>
+    <div class="mb-3">
+      <label for="name" class="form-label">Auto Numurs</label>
+      <input type="text" class="form-control" id="name" name="name" value="{{ customer['name'] }}">
+    </div>
+    <div class="mb-3">
+      <label for="phonenumber" class="form-label">Telefons</label>
+      <input type="text" class="form-control" id="phonenumber" name="phonenumber" value="{{ customer['phone_number'] }}">
+    </div>
+    <input type="submit" value="Labot">
+    <a class="btn btn-primary" href="/customers" role="button" >
+      Atgriezties
+    </a>
+  </form>
+</div>
+{% endblock %}

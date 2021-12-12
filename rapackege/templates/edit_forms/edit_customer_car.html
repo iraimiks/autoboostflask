@@ -1,0 +1,19 @@
+{% extends 'work/base_work.html' %}
+{% block title %}
+Labo klienta auto datus
+{% endblock %}
+{% block content %}
+<div class="container">
+  <form method="POST">
+    <h2>Labo klienta auto datus</h2>
+    <div class="mb-3">
+      <label for="carname" class="form-label">Auto numurs</label>
+      <input type="text" class="form-control" id="carname" name="carname" value="{{ customercar['car_name'] }}">
+    </div>
+    <input type="submit" value="Labot">
+    <a class="btn btn-primary" href="/customer/{{ customercar['customer_id'] }}" role="button" >
+      Atgriezties
+    </a>
+  </form>
+</div>
+{% endblock %}

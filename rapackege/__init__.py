@@ -9,4 +9,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] = config.sqlconn
 db = SQLAlchemy(app)
 from rapackege import routes
 from . import auth
+from . import dataedit
 app.register_blueprint(auth.bp)
+app.register_blueprint(dataedit.ed)

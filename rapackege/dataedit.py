@@ -1,9 +1,8 @@
-from rapackege import app,db
-import functools
+from rapackege import db
 from flask import (
-    Blueprint, flash, g, redirect, render_template, request, session, url_for
+    Blueprint, render_template, request
 )
-from rapackege.models import Customer, CustomerCars
+from rapackege.models import Customer, CustomerCars, ServiceCar
 
 ed = Blueprint('edit', __name__, url_prefix='/edit')
 
@@ -29,3 +28,19 @@ def edit_customer_car(id):
         customercar.car_name = carname
         db.session.commit()
     return render_template("edit_forms/edit_customer_car.html", customercar=customercar)
+
+@ed.route('customer_car_service/<id>', methods=('GET', 'POST'))
+def edit_car_service(id):
+    servicecar = ServiceCar.query.get(id)
+    if request.method == 'POST':
+        service = request.form['service']
+        partname = request.form['partname']
+        spendtime = request.form['spendtime']
+        worktype = request.form['worktype']
+
+        servicecar.service = service
+        servicecar.part_name = partname
+        servicecar.spend_time = spendtime
+        servicecar.work_type = worktype
+        db.session.commit()
+    return render_template("edit_forms/edit_car_service.html", servicecar=servicecar)

@@ -1,0 +1,44 @@
+{% extends 'work/base_work.html' %}
+{% block title %}
+Labot auto veicamo darbu
+{% endblock %}
+{% block content %}
+<div class="container border border-primary">
+  <form method="POST" class="row g-3">
+    <h2>Labot registrēto darbu</h2>
+    <div class="col-3">
+      <label for="service" class="form-label">Veicamais darbs</label>
+      <input type="text" class="form-control" id="service" name="service" value="{{ servicecar['service'] }}" >
+    </div>
+    <div class="col-3">
+      <label for="partname" class="form-label">Detaļa nosaukums</label>
+      <input type="text" class="form-control" id="partname" name="partname" value="{{ servicecar['part_name'] }}" >
+    </div>
+    <div class="col-3">
+      <label for="spendtime" class="form-label">Laiks min</label>
+      <input type="number" class="form-control" id="spendtime" name="spendtime" value="{{ servicecar['spend_time'] }}" >
+    </div>
+    <div class="col-3">
+      <label for="worktype" class="form-label">Veicamā darbība</label>
+      <div class="mb-3">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="worktype" id="workaction1" value="Remonts" >
+          <label class="form-check-label" for="workaction1">
+            Remonts
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="worktype" id="workaction2" value="Diagnostika">
+          <label class="form-check-label" for="workaction2">
+            Diagnostika
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 mb-2">
+      <button type="submit" class="btn btn-primary">Labot</button>
+      <a type="button" class="btn btn-secondary btn-lg" href="/customer_car_service/{{ servicecar['id_orders_car'] }}">Atgriezties</a>
+    </div>
+  </form>
+</div>
+{% endblock %}

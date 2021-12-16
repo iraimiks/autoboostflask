@@ -192,21 +192,3 @@ def car_orders(id):
 def all_workers():
     workers = Users.query.order_by(desc("id")).all()
     return render_template("admin_dashboard/all_workers.html",workers=workers)
-
-
-
-@app.route("/edit_work/<id>", methods=('GET', 'POST'))
-def edit_work(id):
-    work = Customer.query.get(id)
-    if request.method == 'POST':
-        car_number = request.form['carnumber']
-        phonenumber = request.form['phonenumber']
-        customer_name = request.form['customername']
-
-        work.car_number = car_number
-        work.phonenumber = phonenumber
-        work.customer_name = customer_name
-        db.session.commit()
-
-    #Will edit single work
-    return render_template("work/edit_work.html", work=work)

@@ -2,7 +2,7 @@ from rapackege import app, db
 from flask import (
     g, redirect, render_template, request, url_for
 )
-from rapackege.auth import login_required #, admin_required
+from rapackege.auth import login_required, admin_role
 from rapackege.models import (
     OrdersCars, Customer, CustomerCars, ServiceCar, Users, WorkersCar, CarServiceOrder
 )
@@ -12,6 +12,7 @@ from flask_weasyprint import HTML, render_pdf
 import datetime
 
 @app.route("/order_p/<idorder>")
+@login_required
 def order_p(idorder):
     today = datetime.datetime.now()
     date_time = today.strftime("%d/%m/%Y")
@@ -32,6 +33,7 @@ def inject_user():
 
 @app.route("/customer_reg", methods=('GET', 'POST'))
 @login_required
+@admin_role
 def customer_reg():
     if request.method == 'POST':
         phone_number = request.form['phonenumber']
@@ -51,12 +53,14 @@ def customer_reg():
 
 @app.route("/customers", methods=('GET', 'POST'))
 @login_required
+@admin_role
 def all_customers():
     customers = Customer.query.order_by(desc("id")).all()
     return render_template("work/customers.html", customers=customers)
 
 @app.route("/customer/<id>", methods=('GET', 'POST'))
 @login_required
+@admin_role
 def customer_cars(id):
     customer = Customer.query.filter_by(id=id).first()
     customer_cars = CustomerCars.query.filter_by(customer_id=customer.id).all()
@@ -74,7 +78,6 @@ def customer_cars(id):
 
 @app.route("/customer_car_service/<id>", methods=('GET', 'POST'))
 @login_required
-#@admin_required
 def customer_car_service(id):
     id_orders_car = OrdersCars.query.filter_by(id=id).first()
     app.logger.info(id_orders_car.order_status)
@@ -105,6 +108,7 @@ def customer_car_service(id):
 
 @app.route("/car_to_worker", methods=('GET', 'POST'))
 @login_required
+@admin_role
 def car_to_worker():
     if request.method == 'POST':
         carid = request.form['carid']
@@ -126,6 +130,7 @@ def worker_cars(id):
 
 app.add_url_rule('/worker_cars/<id>','worker_cars',worker_cars)
 
+#Prepare order
 @app.route("/order_pre", methods=('GET', 'POST'))
 def order_pre():
     if request.method == 'POST':
@@ -150,14 +155,17 @@ def order_pre():
         return redirect(url_for('customer_car_service',id=orderid))
 
 @app.route("/all_orders", methods=('GET', 'POST'))
+@admin_role
+@login_required
 def all_orders():
-    #order_details = CarServiceOrder.query.order_by(desc("id")).all()
     order_details = (db.session.query(CarServiceOrder, Customer, CustomerCars)\
     .filter(CarServiceOrder.customer_id == Customer.id)\
     .filter(CarServiceOrder.customer_car_id == CustomerCars.id).order_by(desc(CarServiceOrder.id_order)).all())
     return render_template("work/all_orders.html", order_details=order_details)
 
 @app.route("/car_orders/<id>", methods=('GET', 'POST'))
+@login_required
+@admin_role
 def car_orders(id):
     workers = Users.query.order_by(desc("id")).all()
     id_car = CustomerCars.query.filter_by(id=id).first()
@@ -189,6 +197,8 @@ def car_orders(id):
 
 
 @app.route("/all_workers")
+@login_required
+@admin_role
 def all_workers():
     workers = Users.query.order_by(desc("id")).all()
     return render_template("admin_dashboard/all_workers.html",workers=workers)

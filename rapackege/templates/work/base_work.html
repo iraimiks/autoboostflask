@@ -45,6 +45,7 @@
     </nav>
       <div class="row">
         <div class="col-sm-2 bg-light">
+          {% if user['user_role'] == 'user_admin' %}
           <nav class="nav flex-column ">
             <a class="nav-link" href="/customer_reg">Registrēt Klientu</a>
             <a class="nav-link" href="/customers">Klientu Saraksts</a>
@@ -53,6 +54,7 @@
             <a class="nav-link" href="/all_workers">Darbinieki</a>
             <a class="nav-link" href="#meklēt">Meklēt</a>
           </nav>
+          {% endif %}
         </div>
         <div class="col-sm-9">
           {% block content %}

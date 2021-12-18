@@ -6,6 +6,14 @@ $(document).ready(function() {
   if (elemt != null) {
     elemt.style.display = "none";
   }
-//Simple translate with dom need better aproach
 } );
 
+$(document).ready(function() {
+  $('#all_orders').DataTable( {
+      select: false
+      } );
+  var elemt = document.getElementById("all_orders_filter");
+  if (elemt != null) {
+    elemt.style.display = "none";
+  }
+} );

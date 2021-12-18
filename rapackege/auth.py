@@ -8,8 +8,25 @@ from rapackege.models import Users
 
 bp = Blueprint('auth', __name__, url_prefix='/auth')
 
+def login_required(view):
+    @functools.wraps(view)
+    def wrapped_view(**kwargs):
+        if g.user is None:
+            return redirect(url_for('auth.login'))
+        return view(**kwargs)
+    return wrapped_view
+
+def admin_role(view):
+    @functools.wraps(view)
+    def wrapped_view(**kwargs):
+        if g.user.user_role == 'user_worker':
+            return redirect(url_for('worker_cars',id=g.user.id))
+        return view(**kwargs)
+    return wrapped_view
 
 @bp.route('/register', methods=('GET', 'POST'))
+@login_required
+@admin_role
 def register():
     if request.method == 'POST':
         username = request.form['username']
@@ -67,22 +84,3 @@ def load_logged_in_user():
 def logout():
     session.clear()
     return redirect(url_for('auth.login'))
-
-def login_required(view):
-    @functools.wraps(view)
-    def wrapped_view(**kwargs):
-        if g.user is None:
-            return redirect(url_for('auth.login'))
-        return view(**kwargs)
-    return wrapped_view
-
-#def admin_required(view):
-#    @functools.wraps(view)
-#    def wrapped_view(**kwargs):
-#        app.logger.info('Check:', g.user, 'Check role:',g.user.user_role)
-#        if g.user.user_role != "Admin":
-#            return redirect(url_for('auth.login'))
-#        else:
-#            app.logger.info('testing inssfo log')
-#        return view(**kwargs)
-#    return wrapped_view

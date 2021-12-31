@@ -3,16 +3,54 @@
 Klienta registrācija
 {% endblock %}
 {% block content %}
-<form method="POST">
-  <h2>Registrēt klientu</h2>
-  <div class="mb-3">
-    <label for="phonenumber" class="form-label">Telefons</label>
-    <input type="text" class="form-control" maxlength="8" id="phonenumber" name="phonenumber" placeholder="2XXXXXXX" pattern="[2]{1}[0-9]{7}" value="">
+<div class="container">
+  <div class="row">
+    <form method="POST" class="col-4">
+      <h2>Registrēt klientu</h2>
+      <div class="mb-3">
+        <label for="phonenumber" class="form-label">Telefons</label>
+        {% if customerexist is not none %}
+          <span style="color: orangered">{{ customerexist }}</span>
+        {% endif %}
+        <input type="text" class="form-control" maxlength="8" id="phonenumber" name="phonenumber" placeholder="2XXXXXXX"
+          pattern="[2]{1}[0-9]{7}" value="">
+      </div>
+      <div class="mb-3">
+        <label for="customername" class="form-label">Vārds</label>
+        <input type="text" class="form-control" maxlength="30" id="customername" name="customername" placeholder="Klienta vārds" value="">
+      </div>
+      <input type="submit" value="Saglabāt">
+    </form>
+    <div class="col-5">
+      <a class="btn btn-primary m-3" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button"
+        aria-expanded="false" aria-controls="multiCollapseExample1">Info</a>
+      <div class="collapse multi-collapse" id="multiCollapseExample1">
+        <ol class="list-group list-group-numbered">
+          <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-3 me-auto">
+              <div class="fw-bold">Telefons</div>
+              Klienta <strong>telefons</strong> sazināšanās.
+              Var ievadīt 8 simbolus.
+            </div>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-3 me-auto">
+              <div class="fw-bold">Vārds</div>
+              Klienta <strong>Vārds</strong> vai <strong>Vārds</strong> <strong>Uzvārds</strong>
+            </div>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-3 me-auto">
+              <div class="fw-bold">Saglabāt poga</div>
+              Klienta <strong>Vārds</strong> un <strong>Telefons</strong> saglabāts.
+              Datu bāzē klientu varēs atrast pēc Vārda vai Telefona numura.
+              Nevar saglabāt jaunu klientu ja datubāzē atrod tādu pašu telefona numuru.
+              Klienta telefona numur var labot klienta logā
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
   </div>
-  <div class="mb-3">
-    <label for="customername" class="form-label">Vārds</label>
-    <input type="text" class="form-control" maxlength="30" id="customername" name="customername" value="">
-  </div>
-  <input type="submit" value="Saglabāt">
-</form>
+</div>
 {% endblock %}

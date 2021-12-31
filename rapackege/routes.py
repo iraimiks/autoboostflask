@@ -36,6 +36,7 @@ def inject_user():
 @admin_role
 def customer_reg():
     if request.method == 'POST':
+        customerexist = None
         phone_number = request.form['phonenumber']
         name = request.form['customername']
         new_customer = Customer(
@@ -43,12 +44,15 @@ def customer_reg():
             name=name,
             create_date=datetime.datetime.now()
         )
-        db.session.add(new_customer)
-        db.session.commit()
-        customer = Customer.query.order_by(desc("id")).first()
-        app.logger.info(customer.id)
-        return redirect(url_for('customer_cars',id=customer.id))
-    return render_template("work/customer_reg.html")
+        customer = Customer.query.filter_by(phone_number=phone_number).first()
+        if customer is None:
+            db.session.add(new_customer)
+            db.session.commit()
+            customer = Customer.query.order_by(desc("id")).first()
+            return redirect(url_for('customer_cars',id=customer.id))
+        else:
+            customerexist = "Šis lietotājs eksistē"
+    return render_template("work/customer_reg.html",customerexist=customerexist)
 
 
 @app.route("/customers", methods=('GET', 'POST'))

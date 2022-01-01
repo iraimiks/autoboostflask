@@ -35,8 +35,8 @@ def inject_user():
 @login_required
 @admin_role
 def customer_reg():
+    customerexist = None
     if request.method == 'POST':
-        customerexist = None
         phone_number = request.form['phonenumber']
         name = request.form['customername']
         new_customer = Customer(
@@ -68,17 +68,22 @@ def all_customers():
 def customer_cars(id):
     customer = Customer.query.filter_by(id=id).first()
     customer_cars = CustomerCars.query.filter_by(customer_id=customer.id).all()
+    carexist = None
     if request.method == 'POST':
         car_name = request.form['car_name']
-        regworkfor = CustomerCars(
+        new_customercar = CustomerCars(
             car_name = car_name,
             create_date = datetime.datetime.now(),
             customer_id = customer.id
         )
-        db.session.add(regworkfor)
-        db.session.commit()
-        return redirect(url_for('customer_cars',id=id))
-    return render_template("work/customer_cars.html", customer=customer, customer_cars=customer_cars)
+        customercar = CustomerCars.query.filter_by(car_name=car_name).first()
+        if customercar is None:
+            db.session.add(new_customercar)
+            db.session.commit()
+            return redirect(url_for('customer_cars',id=id))
+        else:
+            carexist = "Šis registrācijas numurs eksistē"
+    return render_template("work/customer_cars.html", customer=customer, customer_cars=customer_cars, carexist=carexist)
 
 @app.route("/customer_car_service/<id>", methods=('GET', 'POST'))
 @login_required

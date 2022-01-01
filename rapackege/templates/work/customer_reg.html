@@ -10,21 +10,23 @@ Klienta registrācija
       <div class="mb-3">
         <label for="phonenumber" class="form-label">Telefons</label>
         {% if customerexist is not none %}
-          <span style="color: orangered">{{ customerexist }}</span>
+          <span style="color: orangered"><strong>{{ customerexist }}</strong></span>
+        {% else %}
+          <span></span>
         {% endif %}
         <input type="text" class="form-control" maxlength="8" id="phonenumber" name="phonenumber" placeholder="2XXXXXXX"
-          pattern="[2]{1}[0-9]{7}" value="">
+          pattern="[2]{1}[0-9]{7}" value="" required>
       </div>
       <div class="mb-3">
         <label for="customername" class="form-label">Vārds</label>
-        <input type="text" class="form-control" maxlength="30" id="customername" name="customername" placeholder="Klienta vārds" value="">
+        <input type="text" class="form-control" maxlength="30" id="customername" name="customername" placeholder="Klienta vārds" value="" required>
       </div>
       <input type="submit" value="Saglabāt">
     </form>
     <div class="col-5">
-      <a class="btn btn-primary m-3" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button"
-        aria-expanded="false" aria-controls="multiCollapseExample1">Info</a>
-      <div class="collapse multi-collapse" id="multiCollapseExample1">
+      <a class="btn btn-primary m-3" data-bs-toggle="collapse" href="#inforegcust" role="button"
+        aria-expanded="false" aria-controls="inforegcust">Info</a>
+      <div class="collapse multi-collapse" id="inforegcust">
         <ol class="list-group list-group-numbered">
           <li class="list-group-item d-flex justify-content-between align-items-start">
             <div class="ms-3 me-auto">

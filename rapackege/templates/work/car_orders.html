@@ -82,7 +82,7 @@ Auto
         </td>
         <th>
           {% if order['order_status'] != 'darbs izdarīts' %}
-            <a type="button" class="btn btn-secondary btn-lg" href="/customer_car_service/{{ order['id'] }}">Sākt darbu</a>
+            <a type="button" class="btn btn-secondary btn-lg" href="/customer_car_service/{{ order['id'] }}">Darbs</a>
           {% else %}
             <a type="button" class="btn btn-secondary btn-lg" href="#" disabled>Darbs izdarīts</a>
           {% endif %}

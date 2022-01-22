@@ -2,6 +2,7 @@ from rapackege import app, db
 from flask import (
     g, redirect, render_template, request, url_for
 )
+from rapackege.validation import validate_Customer_car
 from rapackege.auth import login_required, admin_role
 from rapackege.models import (
     OrdersCars, Customer, CustomerCars, ServiceCar, Users, WorkersCar, CarServiceOrder
@@ -9,6 +10,7 @@ from rapackege.models import (
 from sqlalchemy import desc
 from sqlalchemy.sql import functions
 from flask_weasyprint import HTML, render_pdf
+
 import datetime
 
 @app.route("/order_p/<idorder>")
@@ -82,7 +84,7 @@ def customer_cars(id):
             db.session.commit()
             return redirect(url_for('customer_cars',id=id))
         else:
-            carexist = "Šis registrācijas numurs eksistē"
+            carexist = validate_Customer_car(car_name)
     return render_template("work/customer_cars.html", customer=customer, customer_cars=customer_cars, carexist=carexist)
 
 @app.route("/customer_car_service/<id>", methods=('GET', 'POST'))
@@ -94,8 +96,6 @@ def customer_car_service(id):
     customer = Customer.query.filter_by(id=car.customer_id).first()
     service_cars = ServiceCar.query.filter_by(id_orders_car=id_orders_car.id).all()
     worker = Users.query.filter_by(id=id_orders_car.id_user).first()
-    id_orders_car.order_status = 'darbs izdarīts'
-    db.session.commit()
     if request.method == 'POST':
         service = request.form['service']
         partname = request.form['partname']
@@ -160,6 +160,7 @@ def order_pre():
         spendtime = (db.session.query(functions.sum(ServiceCar.spend_time))\
         .filter(ServiceCar.id_orders_car == orderid))
         order.spend_time = spendtime
+        order.order_status = 'darbs izdarīts'
         db.session.commit()
         return redirect(url_for('customer_car_service',id=orderid))
 

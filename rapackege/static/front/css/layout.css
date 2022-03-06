@@ -10,6 +10,10 @@
   background-position: right;
   background-size: contain;
 }
+.bgfull {
+  background-image: url("1st-section.jpg");
+  background-repeat: no-repeat;
+}
 
 /* Rows
 --------------------------------------------------------------------------------------------------------------- */
@@ -1262,3 +1266,8 @@ table a,
   }
 }
 
+.section-list {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+}

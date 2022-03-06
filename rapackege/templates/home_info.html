@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="bgded overlay padtop" style="background-image:url('images/demo/backgrounds/01.png');">
-  <div id="pageintro" class="hoc clear bgcar">
+<div class="bgded overlay padtop bgfull" >
+  <div id="pageintro" class="hoc clear">
     <article>
-      <h3 class="heading info-head">Ekoloģiskās sistēmas</h3>
-      <p class="info-head">Uzlabos jūsu transporta jaudu un efektivitāti<a href="#caluculator">uzzināt vairāk</a></p>
+      <h3 class="heading info-head">Serviss jūsu transportam</h3>
+      <p>Piedāvājam dažādus servisa pakalpojumus</p>
+      <p>Jaudas uzlabošana <a href="#caluculator">uzzināt vairāk</a></p>
       <footer>
         <ul class="nospace inline pushright">
           <li><a class="btn inverse" href="#auto">AUTO</a></li>
@@ -69,6 +70,48 @@
     <div class="clear"></div>
   </main>
 </div>
+<div class="wrapper row3" id="auto" style="background-color: #026b8a;">
+  <main class="hoc container clear">
+        <ul class="nospace group grid-3">
+          <li class="one_third">
+            <article>
+              <img class="section-list" src="{{ url_for('static', filename='front/img/section/4th-item.jpg') }}">
+              <h6 class="heading" style="color: white;">KVĒPU FILTRS DPF/PDF/FAP</h6>
+            </article>
+          </li>
+          <li class="one_third">
+            <article>
+              <img class="section-list" src="{{ url_for('static', filename='front/img/section/5th-item.jpg') }}">
+              <h6 class="heading" style="color: white;">EGR VĀRSTS</h6>
+            </article>
+          </li>
+          <li class="one_third">
+            <article>
+              <img class="section-list" src="{{ url_for('static', filename='front/img/section/6th-item.jpg') }}">
+              <h6 class="heading" style="color: white;">ADBLUE SISTĒMAS</h6>
+            </article>
+          </li>
+          <li class="one_third">
+            <article>
+              <img class="section-list" src="{{ url_for('static', filename='front/img/section/1st-item.jpg') }}">
+              <h6 class="heading" style="color: white;">DZINĒJA ČIPOŠANA</h6>
+            </article>
+          </li>
+          <li class="one_third">
+            <article>
+              <img class="section-list" src="{{ url_for('static', filename='front/img/section/2nd-item.jpg') }}">
+              <h6 class="heading" style="color: white;">ĀTRUMKĀRBAS ČIPOŠANA</h6>
+            </article>
+          </li>
+          <li class="one_third">
+            <article>
+              <img class="section-list" src="{{ url_for('static', filename='front/img/section/3rd-item.jpg') }}">
+              <h6 class="heading" style="color: white;">IZPLŪDES UN IEPLŪDES</h6>
+            </article>
+          </li>
+        </ul>
+  </main>
+
 <div class="bgded overlay" style="background-image:url('images/demo/backgrounds/01.png');" id="caluculator">
   <section class="hoc container clear">
     <article id="points" class="group">

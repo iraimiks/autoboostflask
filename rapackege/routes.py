@@ -1,4 +1,5 @@
-from rapackege import app, db
+from email.policy import default
+from rapackege import app, db, languages
 from flask import (
     g, redirect, render_template, request, url_for
 )
@@ -13,25 +14,18 @@ from flask_weasyprint import HTML, render_pdf
 
 import datetime
 
-@app.route("/order_p/<idorder>")
-@login_required
-def order_p(idorder):
-    today = datetime.datetime.now()
-    date_time = today.strftime("%d/%m/%Y")
-    order_items = ServiceCar.query.filter_by(id_orders_car=idorder).all()
-    html = render_template("pdf/order_pdf.html", date_time=date_time, order_items=order_items)
-    return render_pdf(HTML(string=html))
-
-
 @app.route("/")
-@app.route("/home")
 def home_page():
-    return render_template("home_page.html")
+    return render_template("home_info.html")
+
+
+@app.route("/gallery",)
+def home_gallery():
+    return render_template("gallery.html")
 
 @app.context_processor
 def inject_user():
     return dict(user=g.user)
-
 
 @app.route("/customer_reg", methods=('GET', 'POST'))
 @login_required
@@ -96,6 +90,7 @@ def customer_car_service(id):
     customer = Customer.query.filter_by(id=car.customer_id).first()
     service_cars = ServiceCar.query.filter_by(id_orders_car=id_orders_car.id).all()
     worker = Users.query.filter_by(id=id_orders_car.id_user).first()
+    exist_order = CarServiceOrder.query.filter_by(id_order=id_orders_car.id).first()
     if request.method == 'POST':
         service = request.form['service']
         partname = request.form['partname']
@@ -113,7 +108,7 @@ def customer_car_service(id):
         db.session.add(regwork)
         db.session.commit()
         return redirect(url_for('customer_car_service',id=id_orders_car.id))
-    return render_template("work/customer_car_service.html", car=car, customer=customer, service_cars=service_cars, worker=worker, id_orders_car=id_orders_car)
+    return render_template("work/customer_car_service.html", car=car, customer=customer, service_cars=service_cars, worker=worker, id_orders_car=id_orders_car, exist_order=exist_order)
 
 @app.route("/car_to_worker", methods=('GET', 'POST'))
 @login_required

@@ -1,0 +1,109 @@
+{% extends 'work/base_work.html' %}
+{% block title %}
+Klienta registrācija
+{% endblock %}
+{% block content %}
+<div class="container">
+  <h2>This blok</h2>
+  <div class="row">
+    <div class="col-6">
+      <h3>Rēķina Nr. : TTTT</h3>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Serviss: AUTOBOOST</li>
+        <li class="list-group-item">Vien. reģ. nr.: 450444444</li>
+        <li class="list-group-item">PVN reģ. nr.: LV54000000</li>
+        <li class="list-group-item">Juridiskā adrese: Liepājas iela 5, Ludza</li>
+        <li class="list-group-item">Servisa addrese: Liepājas iela 5, Ludza</li>
+        <li class="list-group-item">Tālr: 254000000</li>
+      </ul>
+      <hr>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Banka: Citadele banka AS</li>
+        <li class="list-group-item">Bankas kods: PARXLV22</li>
+        <li class="list-group-item">Konta Nr.: LV62PARX0019035970000</li>
+      </ul>
+      <h3>Klienta dati</h3>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Klients: Jānis</li>
+        <li class="list-group-item">Vien.reģ. nr: </li>
+        <li class="list-group-item">PVN reģ. Nr.:</li>
+        <li class="list-group-item">Juridskā adrese: </li>
+      </ul>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Banka:</li>
+        <li class="list-group-item">Bankas kods:</li>
+        <li class="list-group-item">Konta Nr:</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <table>
+    <thead>
+      <th>
+        Nr
+      </th>
+      <th>
+        Izdarītais darbs
+      </th>
+      <th>
+        Cena bez pvn
+      </th>
+      <th>
+        Detaļas nosaukums
+      </th>
+      <th>
+        Gab.
+      </th>
+      <th>
+        Cena bez pvn
+      </th>
+      <th>
+        Suma bez pvn
+      </th>
+      <th>
+        Suma ar pvn
+      </th>
+      <th>
+
+      </th>
+    </thead>
+    <tbody>
+      {% for order in order_details %}
+      <tr>
+        <td>
+          {{ order.CarServiceOrder['id'] }}
+        </td>
+        <td>
+          {{ order.CarServiceOrder['customer_car_id'] }}
+        </td>
+        <td>
+          {{ order.Customer['name'] }}
+        </td>
+        <td>
+          {{ order.Customer['phone_number'] }}
+        </td>
+        <td>
+          {{ order.CustomerCars['car_name'] }}
+        </td>
+        <td>
+          {{ order.CarServiceOrder['car_work_status'] }}
+        </td>
+        <td>
+          {{ order.CarServiceOrder['order_status'] }}
+        </td>
+        <td>
+          {{ order.CarServiceOrder['worker_id']}}
+        </td>
+        <td>
+          {{ order.CarServiceOrder['create_date'] }}
+        </td>
+        <td>
+          <a type="button" class="btn btn-secondary btn-lg" href="/order/pre/{{ order.CarServiceOrder['id_order'] }}">Sagatavot</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

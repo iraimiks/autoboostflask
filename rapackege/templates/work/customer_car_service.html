@@ -121,6 +121,7 @@ Auto
   <p>
     <b>Sagatavot pasūtījums</b> tiks izveidots rekvizīta sagatave
   </p>
+  {% if exist_order['id_order'] != id_orders_car['id'] %}
   <form method="POST" action="/order_pre">
     <input type="text" id="customerid" class="invisible" name="customerid" value="{{ customer['id'] }}">
     <input type="text" id="customercarid" class="invisible" name="customercarid" value="{{ car['id'] }}">
@@ -129,5 +130,8 @@ Auto
       <button type="submit" class="btn btn-primary">Sagatavot pasūtījums</button>
     </div>
   </form>
+  {% else %}
+    <h3>Pasūtījums sagatavots</h3>
+  {% endif %}
 </div>
 {% endblock %}

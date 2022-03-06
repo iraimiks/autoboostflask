@@ -69,9 +69,7 @@ Auto
           {{ order.CarServiceOrder['create_date'] }}
         </td>
         <td>
-          <a type="button" class="btn btn-secondary btn-lg" href="/order_p/{{ order.CarServiceOrder['id_order'] }}">Sagatavot</a>
-          Rekvizītu
-          Labot
+          <a type="button" class="btn btn-secondary btn-lg" href="/order/pre/{{ order.CarServiceOrder['id_order'] }}">Sagatavot</a>
         </td>
       </tr>
       {% endfor %}

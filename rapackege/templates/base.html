@@ -1,35 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="">
+<!-- Meta Pixel Code -->
+<script>
+  !function (f, b, e, v, n, t, s) {
+    if (f.fbq) return; n = f.fbq = function () {
+      n.callMethod ?
+        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+    };
+    if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+    n.queue = []; t = b.createElement(e); t.async = !0;
+    t.src = v; s = b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t, s)
+  }(window, document, 'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '940372229977876');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=940372229977876&ev=PageView&noscript=1" /></noscript>
+<!-- End Meta Pixel Code -->
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}">
-  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='font-awesome.min.css') }}">
-  <title>
-    {% block title %}
-    {% endblock %}
-  </title>
+  <title>AutoBoost</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="keywords"
+        content="чип тюнинг, увеличение мощности, снижение расхода топлива, ремонт блоков управления двигателем, чиптюнинг, тюнинг, тюнинг двигателя, чип-тюнинг, доработка авто, chiptuning">
+    <meta name="keywords"
+        content="dzinēja, regulēšanas, samazina, patēriņu, degvielas, remonts, bremžu, stiklu, maiņa, kondicionieru, ģeneratoru">
+  <link href="{{ url_for('static', filename='front/css/layout.css') }}" rel="stylesheet" type="text/css" media="all">
+  <link rel='icon' type='image/png' href="{{ url_for('static', filename='front/img/layout.css') }}">
 </head>
 
-<body>
-  <div class="social-face"><a href="https://www.facebook.com/Autoboostlv-102000521430132"  target="_blank"><img
-        src="{{ url_for('static', filename = 'face.png') }}" alt=""></a></div>
-
-  <div class="container">
-    <div class="header">
-      {% include 'header.html' %}
-    </div>
-    <div class="content">
-      {% block content %}
-      {% endblock %}
-    </div>
-    <div class="footer">
-      {% include 'footer.html' %}
+<body id="top">
+  <div class="bgded overlay padtop" style="background-image:url('images/demo/backgrounds/01.png');">
+    <header id="header" class="hoc clear">
+      <div id="logo" class="fl_left">
+        <h1><a href="/"><img style="max-height: 33px;"
+              src="{{ url_for('static', filename='front/img/logoname.png') }}"></a></h1>
+      </div>
+      <nav id="mainav" class="fl_right">
+        <ul class="clear">
+          <li><a href="#galleryhr">Paveiktie darbi</a></li>
+          <!--<li><a href="#">{{ nav_service }}</a></li>
+          <li><a href="#">{{ nav_ability }}</a></li>-->
+        </ul>
+      </nav>
+    </header>
+  </div>
+  {% block content %}
+  {% endblock %}
+  <div class="wrapper row5">
+    <div id="copyright" class="hoc clear">
+      <p class="fl_left">2022 - AutoBoost</p>
     </div>
   </div>
+  <a id="backtotop" href="#top"><i class="fas fa-chevron-up"></i></a>
+  <!-- JAVASCRIPTS -->
+  <script language="JavaScript" type="text/javascript"
+    src="{{ url_for('static', filename='front/scripts/jquery.min.js') }}"></script>
+  <script language="JavaScript" type="text/javascript"
+    src="{{ url_for('static', filename='front/scripts/jquery.backtotop.js') }}"></script>
+  <!--<script language="JavaScript" type="text/javascript"
+    src="{{ url_for('static', filename='front/scripts/jquery.mobilemenu.js') }}"></script>-->
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4RWNEMF5C7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-4RWNEMF5C7');
+  </script>
 </body>
 
 </html>

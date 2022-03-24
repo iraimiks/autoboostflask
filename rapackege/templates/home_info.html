@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="bgded overlay padtop bgfull" >
+<div class="bgded overlay padtop bgfull">
   <div id="pageintro" class="hoc clear">
     <article>
       <h3 class="heading info-head">Serviss jūsu transportam</h3>
@@ -9,8 +9,7 @@
       <footer>
         <ul class="nospace inline pushright">
           <li><a class="btn inverse" href="#auto">AUTO</a></li>
-          <!--<li><a class="btn inverse" href="#">{{ header_btn_2 }}</a></li>
-          <li><a class="btn inverse" href="#">{{ header_btn_3 }}</a></li>-->
+          <li><a class="btn inverse" href="#spec">Traktori un spectransports</a></li>
         </ul>
       </footer>
     </article>
@@ -20,18 +19,23 @@
   <section id="ctdetails" class="hoc clear">
     <ul class="nospace clear">
       <li class="one_quarter first">
-        <div class="block clear"><a href="tel:+37127015660"><i class="fas fa-phone"></i></a> <span><strong>Piezvaniet mums:</strong>
-          +371 27015660</span></div>
+        <div class="block clear"><a href="tel:+37127015660"><i class="fas fa-phone"></i></a> <span><strong>Piezvaniet
+              mums:</strong>
+            +371 27015660</span></div>
       </li>
       <li class="one_quarter">
-        <div class="block clear"><a href="mail:autoboostlv@gmail.com"><i class="fas fa-envelope"></i></a> <span><strong>Nosūtiet mums pastu:</strong> autoboostlv@gmail.com</span></div>
+        <div class="block clear"><a href="mail:autoboostlv@gmail.com"><i class="fas fa-envelope"></i></a>
+          <span><strong>Nosūtiet mums pastu:</strong> autoboostlv@gmail.com</span>
+        </div>
       </li>
       <li class="one_quarter">
         <div class="block clear"><a href="#"><i class="fas fa-clock"></i></a> <span><strong>Pirmd. - Sest.</strong>
             08.00 - 18.00</span></div>
       </li>
       <li class="one_quarter">
-        <div class="block clear"><a href="#"><i class="fas fa-map-marker-alt"></i></a> <span><strong>Kur atrast: </strong>Mēs atrodamies:<a href="https://goo.gl/maps/pLcfY5dVX8445XKi7"> Liepājas iela 5, Ludza</a></span></div>
+        <div class="block clear"><a href="#"><i class="fas fa-map-marker-alt"></i></a> <span><strong>Kur atrast:
+            </strong>Mēs atrodamies:<a href="https://goo.gl/maps/pLcfY5dVX8445XKi7"> Liepājas iela 5, Ludza</a></span>
+        </div>
       </li>
     </ul>
   </section>
@@ -50,19 +54,22 @@
         <li class="one_third">
           <article><a href="#"><i class="fas fa-wrench"></i></a>
             <h6 class="heading">Ekoloģiskās sistēmas</h6>
-            <p>Visplašākais ekoloģijas sistēmu problēmu novēršanas pakalpojumu spektrs - mēs novēršam problēmas tādās ekoloģiskajās sistēmās kā kvēpu DPF, EGR vārsts, AdBlue, katalizatori u.tml.</p>
+            <p>Visplašākais ekoloģijas sistēmu problēmu novēršanas pakalpojumu spektrs - mēs novēršam problēmas tādās
+              ekoloģiskajās sistēmās kā kvēpu DPF, EGR vārsts, AdBlue, katalizatori u.tml.</p>
           </article>
         </li>
         <li class="one_third">
           <article><a href="#"><i class="fas fa-wrench"></i></a>
             <h6 class="heading">Dzinēju čiptūnings</h6>
-            <p>Profesionāla dzinēja vadības bloka programmatūras pielāgošana vieglajām automašīnām, ar mērķi palielināt jaudu, griezes momentu un samazināt degvielas patēriņu.</p>
+            <p>Profesionāla dzinēja vadības bloka programmatūras pielāgošana vieglajām automašīnām, ar mērķi palielināt
+              jaudu, griezes momentu un samazināt degvielas patēriņu.</p>
           </article>
         </li>
         <li class="one_third">
           <article><a href="#"><i class="fas fa-wrench"></i></a>
             <h6 class="heading">AAK, DSG un ZF čiptūnings</h6>
-            <p>DSG un ZF automātisko transmisiju pielāgošana un uzlabošana. Problēmu novēršana, ātrāks pārslēgšanās process, darba loģikas uzlabošana, funkciju aktivizēšana.</p>
+            <p>DSG un ZF automātisko transmisiju pielāgošana un uzlabošana. Problēmu novēršana, ātrāks pārslēgšanās
+              process, darba loģikas uzlabošana, funkciju aktivizēšana.</p>
           </article>
         </li>
       </ul>
@@ -72,137 +79,197 @@
 </div>
 <div class="wrapper row3" id="auto" style="background-color: #026b8a;">
   <main class="hoc container clear">
+    <ul class="nospace group grid-3">
+      <li class="one_third">
+        <article>
+          <img class="section-list" src="{{ url_for('static', filename='front/img/section/4th-item.jpg') }}">
+          <h6 class="heading" style="color: white;">KVĒPU FILTRS DPF/PDF/FAP</h6>
+        </article>
+      </li>
+      <li class="one_third">
+        <article>
+          <img class="section-list" src="{{ url_for('static', filename='front/img/section/5th-item.jpg') }}">
+          <h6 class="heading" style="color: white;">EGR VĀRSTS</h6>
+        </article>
+      </li>
+      <li class="one_third">
+        <article>
+          <img class="section-list" src="{{ url_for('static', filename='front/img/section/6th-item.jpg') }}">
+          <h6 class="heading" style="color: white;">ADBLUE SISTĒMAS</h6>
+        </article>
+      </li>
+      <li class="one_third">
+        <article>
+          <img class="section-list" src="{{ url_for('static', filename='front/img/section/1st-item.jpg') }}">
+          <h6 class="heading" style="color: white;">DZINĒJA ČIPOŠANA</h6>
+        </article>
+      </li>
+      <li class="one_third">
+        <article>
+          <img class="section-list" src="{{ url_for('static', filename='front/img/section/2nd-item.jpg') }}">
+          <h6 class="heading" style="color: white;">ĀTRUMKĀRBAS ČIPOŠANA</h6>
+        </article>
+      </li>
+      <li class="one_third">
+        <article>
+          <img class="section-list" src="{{ url_for('static', filename='front/img/section/3rd-item.jpg') }}">
+          <h6 class="heading" style="color: white;">IZPLŪDES UN IEPLŪDES</h6>
+        </article>
+      </li>
+    </ul>
+  </main>
+
+  <div class="bgded overlay" style="background-image:url('images/demo/backgrounds/01.png');" id="caluculator">
+    <section class="hoc container clear">
+      <article id="points" class="group">
+        <div class="">
+          <h6 class="heading">Uzziniet sava automobiļa iespējas </h6>
+          <p style="padding: 5px">
+            <iframe
+              src="https://files.mods.lv/index.php?option=com_rsform&view=rsform&formId=60&bgcolor=00334c&fcolor=fff"
+              width="100%" height="580px" scrolling="auto" allowfullscreen="allowfullscreen">
+            </iframe>
+          </p>
+          <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
+        </div>
+        <div class="one_third last"><a class="imgover" href="#"><img src="images/demo/348x394.png" alt=""></a></div>
+      </article>
+    </section>
+  </div>
+  <div class="wrapper row3 " id="spec">
+    <main class="hoc container clear">
+      <section id="services">
+        <div class="sectiontitle">
+          <h1>Traktori un spectransports</h1>
+          <hr>
+          <p>Nodrošina jūsu lauksaimniecības transportlīdzekļa dīzeļdegvielas ietaupījumu, lielāku jaudu un lielāku
+            vilkšanas jaudu. </p>
+        </div>
+        <div clss="group btmspace-50">
+          <div class="one_half first">
+            <ul class="nospace group">
+              <li>PLAŠS DZINĒJU REGULĒŠANAS KLĀSTS</li>
+              <p>Nodrošinām Stage 1, Stage 2 un Stage 3 skaņošanu. Mēs zinām, kā atrisināt jūsu AdBlue, EGR un DPF
+                problēmas, un varam pat palīdzēt, ja jums ir problēmas ar traktora, kombaina vai ekskavatora
+                iedarbināšanu. Mēs atbalstām visus rīkus un kontrolsummu programmatūru. Paziņojiet mums savas prasības.
+                Mēs varam palīdzēt.
+              </p>
+              <li>LIELISKA KLIENTU APKALPOŠANA</li>
+              <p>Mēs sniedzam personīgu apkalpošanu un reāllaika tehnisko atbalstu, nevis automatizētu sistēmu. Mēs
+                palīdzēsim ar jebkādiem īpašajiem pieprasījumiem un prasībām.
+              </p>
+              <li>EKSPERTU KOMANDA</li>
+              <p> Mums ir programmatūras izstrādātāju ekspertu komanda ar pieredzi traktoru un citu lauksaimniecības
+                transportlīdzekļu regulēšanā, kā arī vispasaules dzinēju vadības programmētāju tīkls. Viņi strādā kopā,
+                lai precīzi noregulētu ECU visu veidu traktoriem, ekskavatoriem vai kombainiem, lai garantētu jaudu un
+                degvielas ekonomiju.
+              </p>
+            </ul>
+          </div>
+          <div class="one_half">
+            <img src="{{ url_for('static', filename='front/img/specimg/section_2_spec.jpeg') }}">
+          </div>
+        </div>
         <ul class="nospace group grid-3">
           <li class="one_third">
             <article>
-              <img class="section-list" src="{{ url_for('static', filename='front/img/section/4th-item.jpg') }}">
-              <h6 class="heading" style="color: white;">KVĒPU FILTRS DPF/PDF/FAP</h6>
+              <img class="section-list" src="{{ url_for('static', filename='front/img/specimg/header-1000x750.jpg') }}">
             </article>
           </li>
           <li class="one_third">
             <article>
-              <img class="section-list" src="{{ url_for('static', filename='front/img/section/5th-item.jpg') }}">
-              <h6 class="heading" style="color: white;">EGR VĀRSTS</h6>
+              <img class="section-list"
+                src="{{ url_for('static', filename='front/img/specimg/hitachi-1000x750.jpg') }}">
             </article>
           </li>
           <li class="one_third">
             <article>
-              <img class="section-list" src="{{ url_for('static', filename='front/img/section/6th-item.jpg') }}">
-              <h6 class="heading" style="color: white;">ADBLUE SISTĒMAS</h6>
-            </article>
-          </li>
-          <li class="one_third">
-            <article>
-              <img class="section-list" src="{{ url_for('static', filename='front/img/section/1st-item.jpg') }}">
-              <h6 class="heading" style="color: white;">DZINĒJA ČIPOŠANA</h6>
-            </article>
-          </li>
-          <li class="one_third">
-            <article>
-              <img class="section-list" src="{{ url_for('static', filename='front/img/section/2nd-item.jpg') }}">
-              <h6 class="heading" style="color: white;">ĀTRUMKĀRBAS ČIPOŠANA</h6>
-            </article>
-          </li>
-          <li class="one_third">
-            <article>
-              <img class="section-list" src="{{ url_for('static', filename='front/img/section/3rd-item.jpg') }}">
-              <h6 class="heading" style="color: white;">IZPLŪDES UN IEPLŪDES</h6>
+              <img class="section-list"
+                src="{{ url_for('static', filename='front/img/specimg/zetor-vrijstaand-280x200.png') }}">
             </article>
           </li>
         </ul>
-  </main>
-
-<div class="bgded overlay" style="background-image:url('images/demo/backgrounds/01.png');" id="caluculator">
-  <section class="hoc container clear">
-    <article id="points" class="group">
-      <div class="">
-        <h6 class="heading">Uzziniet sava automobiļa iespējas </h6>
-          <p style="padding: 5px">
-              <iframe
-                  src="https://files.mods.lv/index.php?option=com_rsform&view=rsform&formId=60&bgcolor=00334c&fcolor=fff"
-                  width="100%" height="580px" scrolling="auto" allowfullscreen="allowfullscreen">
-              </iframe>
-          </p>
-      <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
-      </div>
-      <div class="one_third last"><a class="imgover" href="#"><img src="images/demo/348x394.png" alt=""></a></div>
-    </article>
-  </section>
-</div>
-<div class="wrapper row3" style="background-color: #026B8A" id="galleryhr">
-  <main class="hoc container clear">
-    <article id="points" class="group">
-      <div class="two_third first">
-        <h6 class="heading">Paveiktie darbi</h6>
-        <ul class="nospace group">
-          <li><span>1</span>EGR vārsta Off</li>
-          <li><span>2</span>PDF Off AdBlue Off</li>
-          <li><span>3</span>Dzinēja remonts</li>
-          <li><span>4</span>Ķēžu maiņa</li>
-          <li><span>5</span>Sprauslu maiņa</li>
-          <li><span>6</span>Sajūga spararata maiņa</li>
-          <li><span>7</span>Zobsiksnas maiņa </li>
-          <li><span>8</span>Vējstiklu maiņa</li>
-        </ul>
-      </div>
-      <div class="one_third last"><a class="imgover" href="#"><img src="{{ url_for('static', filename='front/img/logobig2.png') }}" alt=""></a></div>
-    </article>
-    <figure >
-      <div class="gallery" style="padding: 0.5em  ;">
-        <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20210903_135709.jpg') }}">
-        <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20211004_104400.jpg') }}">
-        <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20200714_114536.jpg') }}">
-        <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20200714_114543.jpg') }}">
-        <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20220112_124823.jpg') }}">
-        <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20200714_184400.jpg') }}">
-        <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20200714_220527.jpg') }}">
-        <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20200714_221612.jpg') }}">
-        <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20200901_102412.jpg') }}">
-        <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20201021_125434.jpg') }}">
-        <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20201022_172255.jpg') }}">
-        <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20201022_172300.jpg') }}">
-        <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20200423_191613.jpg') }}">
-        <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20201023_120457.jpg') }}">
-        <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20201023_120508.jpg') }}">
-        <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20201023_120533.jpg') }}">
-        <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20201027_104520.jpg') }}">
-        <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20201029_111704.jpg') }}">
-        <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20201031_143616.jpg') }}">
-        <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20201031_152128.jpg') }}">
-        <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20201103_195600.jpg') }}">
-        <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20201104_071307.jpg') }}">
-        <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20201107_170043.jpg') }}">
-        <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20201108_050528.jpg') }}">
-        <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20201112_155239.jpg') }}">
-        <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20201113_202147.jpg') }}">
-        <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20210115_172521.jpg') }}">
-        <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20210614_101349.jpg') }}">
-        <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20210614_154944.jpg') }}">
-        <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20210614_155727.jpg') }}">
-        <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20210614_155743.jpg') }}">
-        <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20210614_155834.jpg') }}">
-        <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20210614_155908.jpg') }}">
-        <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20210616_155114.jpg') }}">
-        <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20210622_193034.jpg') }}">
-        <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20210706_161218.jpg') }}">
-        <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20210706_182719.jpg') }}">
-        <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20210709_110343.jpg') }}">
-        <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20210727_200531.jpg') }}">
-        <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20210727_200539.jpg') }}">
-        <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20210728_163415.jpg') }}">
-        <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20210728_165848.jpg') }}">
-        <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20210728_173052.jpg') }}">
-        <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20210803_121100.jpg') }}">
-        <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20210803_121112.jpg') }}">
-        <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20210803_121148.jpg') }}">
-        <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20210803_144055.jpg') }}">
-        <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20210811_095502.jpg') }}">
-        <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20210820_183747.jpg') }}">
-        <img src="{{ url_for('static', filename='front/img/bulkimg/2022-02-01-19.15.24.jpeg') }}">
-        <img src="{{ url_for('static', filename='front/img/bulkimg/2022-02-01-19.15.43.jpeg') }}">
-        <img src="{{ url_for('static', filename='front/img/bulkimg/2022-02-01-19.16.48.jpeg') }}">
-      </div>
+      </section>
       <div class="clear"></div>
-  </main>
-</div>
-{% endblock %}
+    </main>
+  </div>
+
+
+  <div class="wrapper row3" style="background-color: #026B8A" id="galleryhr">
+    <main class="hoc container clear">
+      <article id="points" class="group">
+        <div class="two_third first">
+          <h6 class="heading">Paveiktie darbi</h6>
+          <ul class="nospace group">
+            <li><span>1</span>EGR vārsta Off</li>
+            <li><span>2</span>PDF Off AdBlue Off</li>
+            <li><span>3</span>Dzinēja remonts</li>
+            <li><span>4</span>Ķēžu maiņa</li>
+            <li><span>5</span>Sprauslu maiņa</li>
+            <li><span>6</span>Sajūga spararata maiņa</li>
+            <li><span>7</span>Zobsiksnas maiņa </li>
+            <li><span>8</span>Vējstiklu maiņa</li>
+          </ul>
+        </div>
+        <div class="one_third last"><a class="imgover" href="#"><img
+              src="{{ url_for('static', filename='front/img/logobig2.png') }}" alt=""></a></div>
+      </article>
+      <figure>
+        <div class="gallery" style="padding: 0.5em  ;">
+          <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20210903_135709.jpg') }}">
+          <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20211004_104400.jpg') }}">
+          <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20200714_114536.jpg') }}">
+          <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20200714_114543.jpg') }}">
+          <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20220112_124823.jpg') }}">
+          <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20200714_184400.jpg') }}">
+          <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20200714_220527.jpg') }}">
+          <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20200714_221612.jpg') }}">
+          <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20200901_102412.jpg') }}">
+          <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20201021_125434.jpg') }}">
+          <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20201022_172255.jpg') }}">
+          <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20201022_172300.jpg') }}">
+          <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20200423_191613.jpg') }}">
+          <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20201023_120457.jpg') }}">
+          <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20201023_120508.jpg') }}">
+          <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20201023_120533.jpg') }}">
+          <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20201027_104520.jpg') }}">
+          <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20201029_111704.jpg') }}">
+          <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20201031_143616.jpg') }}">
+          <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20201031_152128.jpg') }}">
+          <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20201103_195600.jpg') }}">
+          <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20201104_071307.jpg') }}">
+          <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20201107_170043.jpg') }}">
+          <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20201108_050528.jpg') }}">
+          <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20201112_155239.jpg') }}">
+          <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20201113_202147.jpg') }}">
+          <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20210115_172521.jpg') }}">
+          <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20210614_101349.jpg') }}">
+          <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20210614_154944.jpg') }}">
+          <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20210614_155727.jpg') }}">
+          <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20210614_155743.jpg') }}">
+          <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20210614_155834.jpg') }}">
+          <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20210614_155908.jpg') }}">
+          <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20210616_155114.jpg') }}">
+          <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20210622_193034.jpg') }}">
+          <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20210706_161218.jpg') }}">
+          <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20210706_182719.jpg') }}">
+          <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20210709_110343.jpg') }}">
+          <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20210727_200531.jpg') }}">
+          <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20210727_200539.jpg') }}">
+          <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20210728_163415.jpg') }}">
+          <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20210728_165848.jpg') }}">
+          <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20210728_173052.jpg') }}">
+          <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20210803_121100.jpg') }}">
+          <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20210803_121112.jpg') }}">
+          <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20210803_121148.jpg') }}">
+          <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20210803_144055.jpg') }}">
+          <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20210811_095502.jpg') }}">
+          <img src="{{ url_for('static', filename='front/img/bulkimg/IMG_20210820_183747.jpg') }}">
+          <img src="{{ url_for('static', filename='front/img/bulkimg/2022-02-01-19.15.24.jpeg') }}">
+          <img src="{{ url_for('static', filename='front/img/bulkimg/2022-02-01-19.15.43.jpeg') }}">
+          <img src="{{ url_for('static', filename='front/img/bulkimg/2022-02-01-19.16.48.jpeg') }}">
+        </div>
+        <div class="clear"></div>
+    </main>
+  </div>
+  {% endblock %}
